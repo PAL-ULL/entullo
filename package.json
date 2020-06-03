@@ -1,0 +1,77 @@
+{
+  "name": "eusda",
+  "version": "2.0.2",
+  "description": "USDA command line downloader",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js --help",
+    "config": "node app.js config",
+    "download-help": "node app.js download --help",
+    "insert-help": "node app.js insert --help",
+    "lint": "npx eslint lib/load-data.js",
+    "lint:fix": "npx eslint --fix lib/",
+    "test": "mocha"
+  },
+  "author": {
+    "name": "Kathrina Arocha Umpiérrez",
+    "email": "alu0100913293@ull.edu.es"
+  },
+  "contributors": [
+    {
+      "name": "Coromoto León Hernándex",
+      "email": "cleon@ull.edu.es"
+    },
+    {
+      "name": "Casiano Rodríguez León",
+      "email": "crguezl@ull.edu.es"
+    }
+  ],
+  "bin": {
+    "eusda": "./app.js"
+  },
+  "keywords": [
+    "cli",
+    "mongodb",
+    "usda",
+    "nutrition"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PAL-ULL/jilorio.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.4.14",
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "config": "^3.3.1",
+    "excelresolver": "^1.0.1",
+    "figlet": "^1.4.0",
+    "inquirer": "^7.1.0",
+    "js-beautify": "^1.11.0",
+    "mongo-ssh": "^1.0.0",
+    "mongodb": "^3.5.6",
+    "mongojs": "^3.1.0",
+    "mongoose": "^5.9.2",
+    "mongoose-ssh": "^0.1.0",
+    "tunnel-ssh": "^4.1.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "commander": "^4.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^25.5.4",
+    "mocha": "^7.1.2",
+    "morgan": "^1.9.1"
+  },
+  "bugs": {
+    "url": "https://github.com/PAL-ULL/jilorio/issues"
+  },
+  "homepage": "https://github.com/PAL-ULL/jilorio#readme"
+}

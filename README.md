@@ -1,4 +1,4 @@
-# eusda
+# entullo
 This is a simple development of a package that allows to have a database in MongoDB with nutrition data obtained of USDA (United States Department of Agriculture). You can change the url and download other type of data  for your database.
 
 ## Installation
@@ -6,7 +6,7 @@ This is a simple development of a package that allows to have a database in Mong
 You need node.js and npm.
 
 ~~~
-npm install -d eusda
+npm install -d entullo
 ~~~
 
 ## Usage from command line
@@ -15,6 +15,7 @@ You can use `--help` option to see what you can do:
 
 ~~~
 Options:
+  -v --version        Print entullo version
   -h, --help          output usage information
 
 Commands:
@@ -32,7 +33,7 @@ Commands:
     ~~~
     Usage: app download [options]
 
-    Download data from USDA
+    Download data from entullo
 
     Options:
     -u, --usda       USDA data version
@@ -45,7 +46,7 @@ Commands:
 - Options: You can see the command options using `--help`:
 
     ~~~
-    Usage: app usda [options]
+    Usage: app entullo [options]
 
     Config the URLs
 

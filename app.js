@@ -189,7 +189,7 @@ function start() {
     };
 
     (async () => {
-        msn('eusda');
+        msn('entullo');
         const first = await question1();
         const second = await question2();
         const result = queryParams(first, second)
@@ -240,7 +240,7 @@ const createDirs = () => {
             fs.mkdirSync(pathJson, 0777);
         }
     } else if (fs.existsSync(pathFiles)) {
-        console.log("files no existe");
+  
         const pathZip = `${process.cwd()}/files/zip`;
         if (!fs.existsSync(pathZip)) {
             console.log("The directory 'zip' was created.")
@@ -335,12 +335,12 @@ function init() {
         .usage("command [option]");
 
     program
-        .option("-v --version", "Print eusda version")
+        .option("-v --version", "Print entullo version")
         .description("Show the version.")
 
     if (program.version !== undefined) {
         const package = require("./package.json");
-        console.log(`eusda ${package.version}`);
+        console.log(`entullo ${package.version}`);
     }
 
 

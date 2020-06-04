@@ -182,3 +182,10 @@ The new tree structure is:
 
 5 directories, 5 files
 ```
+
+Observe the size of the file `files/json/usda.json`: it contains the whole data base in JSON format. For instance, to get the 2nd item description we can use [jq](https://stedolan.github.io/jq/):
+
+```
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ jq .[1].shrt_desc files/json/usda.json
+"BUTTER,WHIPPED,W/ SALT"
+```

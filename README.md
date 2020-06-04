@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/entullo.svg)](https://badge.fury.io/js/entullo)
+
 # entullo
 This is a simple development of a package that allows to have a database in MongoDB with nutrition data obtained of USDA (United States Department of Agriculture). You can change the url and download other type of data  for your database.
 

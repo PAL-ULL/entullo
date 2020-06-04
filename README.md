@@ -59,7 +59,7 @@ Commands:
 
 `insert`: It inserts data in your database (MongoDB).
 
-## Tutorial
+## Entullo Tutorial
 
 Install it with
 
@@ -203,6 +203,7 @@ and [run it](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/)
 2020-06-04T11:33:33.522+0100 I  CONTROL  [initandlisten] MongoDB starting : pid=9774 port=27017 dbpath=. 64-bit host=sanclemente-2.local
 ...
 ```
+
 This commands start `mongod` in the directory `mongo-database`:
 
 ```
@@ -224,4 +225,37 @@ mongo-database/
 └── storage.bson
 
 2 directories, 21 files
+```
+
+Now we can upload the json file inside the mongo database with
+
+```
+.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ entullo insert
+entullo 2.0.2
+/Users/casiano/.nvm/versions/node/v12.10.0/lib/node_modules/entullo/node_modules/mongodb/lib/utils.js:132
+      throw err;
+      ^
+
+MongoError: ns not found
+    at MessageStream.messageHandler (/Users/casiano/.nvm/versions/node/v12.10.0/lib/node_modules/entullo/node_modules/mongodb/lib/cmap/connection.js:261:20)
+    at MessageStream.emit (events.js:209:13)
+    at processIncomingData (/Users/casiano/.nvm/versions/node/v12.10.0/lib/node_modules/entullo/node_modules/mongodb/lib/cmap/message_stream.js:144:12)
+    at MessageStream._write (/Users/casiano/.nvm/versions/node/v12.10.0/lib/node_modules/entullo/node_modules/mongodb/lib/cmap/message_stream.js:42:5)
+    at doWrite (_stream_writable.js:428:12)
+    at writeOrBuffer (_stream_writable.js:412:5)
+    at MessageStream.Writable.write (_stream_writable.js:302:11)
+    at Socket.ondata (_stream_readable.js:722:22)
+    at Socket.emit (events.js:209:13)
+    at addChunk (_stream_readable.js:305:12) {
+  ok: 0,
+  code: 26,
+  codeName: 'NamespaceNotFound',
+  name: 'MongoError'
+}
+```
+
+From stack overflow:
+
+```
+ MongoError: ns not found occurs when performing actions on collections that don't exist. For example, attempting to drop indexes before an explicit collection creation has occurred or before adding a document to the collection which implicitly creates the collection.
 ```

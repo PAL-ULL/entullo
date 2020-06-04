@@ -10,6 +10,11 @@ var beautify = require('js-beautify').js;
 const home = require('os').homedir();
 const homeConfig = Path.join(home, ".config");
 const actual = Path.join(process.cwd(), "config");
+const actualEntullo = Path.join(actual, "entullo");
+const homeEntullo = Path.join(homeConfig, "entullo");
+
+
+
 
 function start() {
 
@@ -54,10 +59,12 @@ function start() {
 
         if (second.directory === 'I want to use this directory.') {
             process.env["NODE_CONFIG_DIR"] = actual;
-            console.log("aqui:" + process.env["NODE_CONFIG_DIR"]);
+            const actualEntullo = Path.join(actual, "entullo");
+ 
 
         } else if (second.directory === 'I want to use my home directory.') {
             process.env["NODE_CONFIG_DIR"] = homeConfig;
+            const homeEntullo = Path.join(homeConfig, "entullo");
 
         }
 
@@ -178,10 +185,16 @@ function start() {
             if (!fs.existsSync(process.env["NODE_CONFIG_DIR"])) {
                 console.log("New directory was created.")
                 fs.mkdirSync(process.env["NODE_CONFIG_DIR"], 0777);
+               
+            }
+            const newPath = Path.join(process.env["NODE_CONFIG_DIR"] + "/entullo");
+          
+            if (!fs.existsSync(newPath)) {
+                fs.mkdirSync(newPath, 0777);
             }
 
-            const file = Path.join(process.env["NODE_CONFIG_DIR"] + "/default.json");
-            console.log(file);
+            const file = Path.join(process.env["NODE_CONFIG_DIR"] + "/entullo/default.json");
+
             fs.writeFileSync(file, beautify(JSON.stringify(cont), { indent_size: 2, space_in_empty_paren: true }));
 
         }
@@ -292,8 +305,13 @@ const createConfig = (data) => {
     if (!fs.existsSync(process.env["NODE_CONFIG_DIR"])) {
         console.log("New directory was created.")
         fs.mkdirSync(process.env["NODE_CONFIG_DIR"], 0777);
+       
     }
-    const file = Path.join(process.env["NODE_CONFIG_DIR"] + "/default.json");
+    const newPath = Path.join(process.env["NODE_CONFIG_DIR"] + "/entullo");
+    if (!fs.existsSync(newPath)) {
+        fs.mkdirSync(newPath, 0777);
+    }
+    const file = Path.join(process.env["NODE_CONFIG_DIR"] + "/entullo/default.json");
     fs.writeFileSync(file, beautify(JSON.stringify(myConfig),  { indent_size: 2, space_in_empty_paren: true } ));
  
 };
@@ -305,12 +323,12 @@ const createConfig = (data) => {
 
 function init() {
 
-    if (fs.existsSync(actual)) {
+    if ((fs.existsSync(actual)) && (fs.existsSync(actualEntullo))) {
         // console.log("Caso 1: ")
-        process.env["NODE_CONFIG_DIR"] = actual;
+        process.env["NODE_CONFIG_DIR"] = actualEntullo;
         // console.log("aqui:" + process.env["NODE_CONFIG_DIR"]);
-    } else if (fs.existsSync(homeConfig)) {
-        process.env["NODE_CONFIG_DIR"] = homeConfig;
+    } else if ((fs.existsSync(homeConfig)) && (fs.existsSync(homeEntullo))) {
+        process.env["NODE_CONFIG_DIR"] = homeEntullo; 
         // console.log("aqui:" + process.env["NODE_CONFIG_DIR"]);
     }
     // process.env.SUPPRESS_NO_CONFIG_WARNING = 'y';
@@ -449,7 +467,7 @@ function init() {
 }
 
 
-if ((!fs.existsSync(Path.join(home, ".config" + "/default.json"))) && (!fs.existsSync(Path.join(process.cwd(), "config" + "/default.json")))) {
+if ((!fs.existsSync(Path.join(home, ".config" + "/entullo/default.json"))) && (!fs.existsSync(Path.join(process.cwd(), "config" + "/entullo/default.json")))) {
     console.log("No existe un archivo de configuración llamado default.json.");
     if (!fs.existsSync(Path.join(process.cwd(), "files"))) {
         createDirs();

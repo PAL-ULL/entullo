@@ -1,5 +1,5 @@
 {
-  "name": "eusda",
+  "name": "entullo",
   "version": "2.0.2",
   "description": "USDA command line downloader",
   "main": "app.js",
@@ -27,7 +27,7 @@
     }
   ],
   "bin": {
-    "eusda": "./app.js"
+    "entullo": "./app.js"
   },
   "keywords": [
     "cli",

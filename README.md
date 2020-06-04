@@ -146,3 +146,39 @@ Config {
   }
 }
 ```
+
+With the command `download` you can download the default version:
+
+```
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ entullo download
+entullo 2.0.2
+
+ Downloading from USDA, using version sr28
+        You can choose another version in this URL:
+        https://www.ars.usda.gov/northeast-area/beltsville-md-bhnrc/beltsville-human-nutrition-research-center/methods-and-application-of-food-composition-laboratory/mafcl-site-pages/sr11-sr28/
+       Then, you should change it in our configuration file: ./config/default.json
+
+Extracted files
+Converting excel file to json...
+Process successfully completed
+New json file created in ./files/json/
+```
+
+The new tree structure is:
+
+```
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ tree -s
+.
+├── [        102]  config
+│   └── [       1559]  default.json
+└── [        170]  files
+    ├── [        102]  json
+    │   └── [   11787549]  usda.json
+    ├── [        136]  unzip
+    │   ├── [    2486334]  ABBREV.xlsx
+    │   └── [     653211]  sr28_doc.pdf
+    └── [        102]  zip
+        └── [    3050195]  data.zip
+
+5 directories, 5 files
+```

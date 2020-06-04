@@ -190,7 +190,7 @@ Observe the size of the file `files/json/usda.json`: it contains the whole data 
 "BUTTER,WHIPPED,W/ SALT"
 ```
 
-Be sure MongoDB is installed and `mongod` is running. If not, 
+Be sure MongoDB is installed and `mongod` is running. If not,
 [install it](https://docs.mongodb.com/manual/installation/),
 [confifure it](https://docs.mongodb.com/manual/reference/configuration-options/)
 and [run it](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/):

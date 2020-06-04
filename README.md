@@ -189,3 +189,39 @@ Observe the size of the file `files/json/usda.json`: it contains the whole data 
 [.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ jq .[1].shrt_desc files/json/usda.json
 "BUTTER,WHIPPED,W/ SALT"
 ```
+
+Be sure MongoDB is installed and `mongod` is running. If not, 
+[install it](https://docs.mongodb.com/manual/installation/),
+[confifure it](https://docs.mongodb.com/manual/reference/configuration-options/)
+and [run it](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/):
+
+```
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ mkdir mongo-database
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ cd mongo-database/
+[.../deploy/mongo-database(master)]$ mongod --dbpath .
+2020-06-04T11:33:33.492+0100 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-06-04T11:33:33.522+0100 I  CONTROL  [initandlisten] MongoDB starting : pid=9774 port=27017 dbpath=. 64-bit host=sanclemente-2.local
+...
+```
+This commands start `mongod` in the directory `mongo-database`:
+
+```
+[.../tfg-kathrina-arrocha-umpierrez/deploy(master)]$ tree mongo-database/
+mongo-database/
+├── WiredTiger
+├── WiredTiger.lock
+├── WiredTiger....
+├── _mdb_catalog.wt
+├── collection-.....wt
+├── diagnostic.data
+│   ├── metrics.2020-06-04T10-33-42Z-00000
+│   └── metrics.interim
+├── index-6--5.....wt
+├── journal
+│   └── WiredTigerPreplog....
+├── mongod.lock
+├── sizeStorer.wt
+└── storage.bson
+
+2 directories, 21 files
+```

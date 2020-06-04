@@ -449,9 +449,15 @@ function init() {
 
 if ((!fs.existsSync(Path.join(home, ".config" + "/entullo/default.json"))) && (!fs.existsSync(Path.join(process.cwd(), "config" + "/entullo/default.json")))) {
 
+    if (process.argv[2] === "--help"){
+        program.help();
+    }
+   
+
     if (!fs.existsSync(Path.join(process.cwd(), "files"))) {
         createDirs();
     }
+
     start();
 
 } else {

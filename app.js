@@ -87,7 +87,7 @@ function start() {
                     name: 'dbName',
                     type: 'input',
                     message: 'Database name: ',
-                    default: 'usda-db',
+                    default: 'entullo',
                     validate: validateString
                 }, {
                     name: 'dbCollection',
@@ -148,7 +148,7 @@ function start() {
                 {
                     host: "127.0.0.1",
                     port: 27017,
-                    name: "usda-db",
+                    name: "entullo",
                     collectionUSDA: "food"
                 },
                 usda: {

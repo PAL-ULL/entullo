@@ -348,7 +348,7 @@ function init() {
         .action(function () {
             console.log("\nThe configuration used is:\n");
             console.log(config);
-            console.log("\n You can change the settings from default.json:\n");
+            console.log("\n You can change the settings from default.json.\n");
         });
 
     const urls = config.get("usda.urls");
